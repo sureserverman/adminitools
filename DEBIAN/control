@@ -1,0 +1,5 @@
+Package: adminitools
+Version: 0.4.1
+Maintainer: Server Man
+Architecture: all
+Description: Mini tools for admins

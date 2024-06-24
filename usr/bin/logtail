@@ -1,0 +1,19 @@
+#!/bin/bash
+
+argarray=( "$@" )
+
+echo ""
+
+for arg in "${argarray[@]}"; do
+  echo -e "\033[34m$arg\033[37m"
+  echo ""
+  cat /var/log/syslog | grep $arg | tail -50
+  echo ""
+  echo ""
+  if [[ $arg != ${argarray[-1]} ]]
+    then
+      printf "\033[33mContinue?\033[37m"
+      read -n 1 -s -r
+      printf "\33[2K\r"
+    fi
+done  

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+argarray=( "$@" )
+
+echo ""
+
+for conffile in "${argarray[@]}"; do
+  echo -e "\033[34m$conffile\033[37m"
+  echo ""
+  cat $conffile | awk '!/^#/  && NF'
+  echo ""
+  echo ""
+  if [[ $conffile != ${argarray[-1]} ]]
+    then
+      printf "\033[33mContinue?\033[37m"
+      read -n 1 -s -r
+      # printf "\e[A\e[K"
+      printf "\33[2K\r"
+    fi
+done  
