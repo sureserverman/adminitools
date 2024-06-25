@@ -12,7 +12,7 @@ for arg in "${argarray[@]}"; do
   echo ""
   if [[ $arg != ${argarray[-1]} ]]
     then
-      printf "\033[33mContinue?\033[37m"
+      printf "\033[33mPress any key to continue\033[37m"
       read -n 1 -s -r
       printf "\33[2K\r"
     fi
