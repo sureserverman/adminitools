@@ -7,7 +7,7 @@ echo ""
 for arg in "${argarray[@]}"; do
   echo -e "\033[34m$arg\033[37m"
   echo ""
-  history | grep $arg | tail -50
+  cat --number ~/.bash_history | grep $arg | tail -50
   echo ""
   echo ""
   if [[ $arg != ${argarray[-1]} ]]
