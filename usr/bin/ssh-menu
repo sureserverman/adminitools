@@ -4,12 +4,34 @@
 servnum=0
 listfile="/etc/ssh-menu/server-list"
 
+
+#Help output function
+printhelp () {
+  echo -e "This tool is made for easy access toyour servers via \033[33;1mssh\033[0m"
+  echo -e "Usage: \033[33;1mssh-menu -h\033[0m or \033[33;1mssh-menu --help\033[0m - to print this help"
+  echo -e "\033[33;1mssh-menu\033[0m without arguments to choose server from the list interactively"
+  echo -e "\033[33;1mssh-menu <servernumber>\033[0m to connect to the server which has number <servernumber> in your list"
+  echo -e "The list is stored in \033[33;1m/etc/ssh-menu/server-list\033[0m file"
+  echo -e "To add new servers to the list use '\033[33;1mmenu-add\033[0m' command"
+  echo -e "To remove servers from the list use '\033[33;1mmenu-rm\033[0m' command"
+  exit
+}
+
+#Check args for help 
+helptrigger () {
+  if [[ ${argarray[*]} =~ '-h' ]] || [[ ${argarray[*]} =~ '--help' ]]
+      then
+        printhelp
+      fi
+}
+
 #Check server-list file length
 filelength=$(($(wc -l < $listfile)+1))
 
 #Check if there is command line argument
 if [ $# -ne 0 ]
   then
+    helptrigger
     servnum=$1
     #Check if argument is out of the range
     if [[ $servnum -lt 1 || $servnum -gt $filelength ]]

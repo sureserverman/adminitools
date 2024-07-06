@@ -1,13 +1,39 @@
 #!/bin/bash
 
-argarray=( "$@" )
+#Help output function
+printhelp () {
+  echo -e "This tool was made for finding relevant information from \033[33;1m/var/log/syslog\033[0m file"
+  echo -e "Usage: \033[33;1mlogtail -h\033[0m or \033[33;1mlogtail --help\033[0m - to print this help"
+  echo -e "\033[33;1mlogtail\033[0m without arguments to print this help again"
+  echo -e "\033[33;1mlogtail <argument1> <argument2>...\033[0m with as many arguments as you need"
+  echo -e "where argument should be substring that you want to find from your log"
+  echo -e "The output is last 50 lines from log, which contain \033[33;1m<argument1>\033[0m substring, then"
+  echo -e "after any key pressed by the user, last 50 lines from log, which contain \033[33;1m<argument2>\033[0m substring etc."
+  exit
+}
+
+#Check args for help 
+helptrigger () {
+  if [[ ${argarray[*]} =~ '-h' ]] || [[ ${argarray[*]} =~ '--help' ]]
+      then
+        printhelp
+      fi
+}
+
+if [ $# -ne 0 ]
+  then
+    argarray=( "$@" )
+    helptrigger
+  else
+    printhelp
+  fi
 
 echo ""
 
 for arg in "${argarray[@]}"; do
   echo -e "\033[34m$arg\033[37m"
   echo ""
-  cat /var/log/syslog | grep $arg | tail -50
+  sudo cat /var/log/syslog | grep $arg | tail -50
   echo ""
   echo ""
   if [[ $arg != ${argarray[-1]} ]]

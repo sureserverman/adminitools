@@ -2,21 +2,15 @@
 
 #Init list file name
 listfile="/etc/ssh-menu/server-list"
+newln=""
 
 sshcommand=""
 
 #Add string function
 addsshstring () {
-#   printf "\33[1A\r"
-  if [ -s "$listfile" ]
-    then
-      newln="\n"
-    else
-      newln=""
-    fi
   if [ $(cat $listfile | grep -c "$sshcommand") = 0 ]
     then
-      echo -n -e "$newln$sshcommand" | sudo tee -a $listfile
+      echo "$sshcommand" | sudo tee -a $listfile
     fi
 }
 
@@ -24,9 +18,9 @@ addsshstring () {
 demock () {
   if [ -f "$listfile" ] && [ $(cat $listfile | wc -l) = 0 ] && [ $(cat $listfile | grep -c "Mockserver") = 1 ]
     then
-      rm -f $listfile 
+      sudo rm -f $listfile 
   fi
-  touch $listfile
+  sudo touch $listfile
 }
 
 #Settings file parser function
@@ -58,14 +52,19 @@ printhelp () {
   exit
 }
 
+#Check args for help 
+helptrigger () {
+  if [[ ${argarray[*]} =~ '-h' ]] || [[ ${argarray[*]} =~ '--help' ]]
+      then
+        printhelp
+      fi
+}
+
 #Check if there is command line argument
 if [ $# -ne 0 ]
   then
     argarray=( "$@" )
-    if [[ ${argarray[*]} =~ '-h' ]] || [[ ${argarray[*]} =~ '--help' ]]
-      then
-        printhelp
-      fi
+    helptrigger
     demock
     echo "Adding servers:"
     for arg in "${argarray[@]}"; do

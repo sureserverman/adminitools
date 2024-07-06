@@ -1,6 +1,29 @@
 #!/bin/bash
 
-argarray=( "$@" )
+#Help output function
+printhelp () {
+  echo -e "This tool made for stripping \033[33;1m.conf\033[0m files of everything but current settings"
+  echo -e "Usage: \033[33;1mstripconf -h\033[0m or \033[33;1mstripconf --help\033[0m - to print this help"
+  echo -e "\033[33;1mstripconf\033[0m without arguments to print this help again"
+  echo -e "\033[33;1mstripconf <argument1> <argument2>...\033[0m with as many arguments as you need"
+  echo -e "where argument should be name of the file, which contains configuration information"
+  exit
+}
+
+#Check args for help 
+helptrigger () {
+  if [[ ${argarray[*]} =~ '-h' ]] || [[ ${argarray[*]} =~ '--help' ]]
+      then
+        printhelp
+      fi
+}
+if [ $# -ne 0 ]
+  then
+    argarray=( "$@" )
+    helptrigger
+  else
+    printhelp
+  fi
 
 echo ""
 
