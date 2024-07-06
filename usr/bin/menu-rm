@@ -29,7 +29,9 @@ filelength=$(($(wc -l < $listfile)+1))
 if [ $# -ne 0 ]
   then
     argarray=( "$@" )
+    #Check if there is help argument
     helptrigger
+    #Add server line numbers for removal
     for rmserv in "${argarray[@]}"; do
       if [ "$servnum" != "" ]
         then
@@ -38,7 +40,6 @@ if [ $# -ne 0 ]
       servnum+=$rmserv"d"
     done
     sudo sed -i "$servnum" $listfile
-    # sudo truncate -s -1 $listfile
   else
     #Interactive server choice mode
 
@@ -53,7 +54,9 @@ if [ $# -ne 0 ]
     #Offer options to choose
     echo "chose server you want to remove"
     echo ""
+    #Menu in one column
     COLUMNS=1
+    #Request server number 
     select servchoice in "${servarray[@]}"
       do 
         sshcommand="$servchoice"
@@ -66,6 +69,7 @@ if [ $# -ne 0 ]
       then
         echo "Wrong server number" && exit
       else
+        #Confirm decision to remove the server
         echo "Remove \"$sshcommand\"? y/n"
         read -n1 yn
         echo ""
@@ -73,7 +77,6 @@ if [ $# -ne 0 ]
             [Yy]* )
             servnum+="d"
             sudo sed -i "$servnum" $listfile
-            # sudo truncate -s -1 $listfile
             ;;
             [Nn]* )
             echo "Operation discarded" && exit

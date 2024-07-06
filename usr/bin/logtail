@@ -20,16 +20,20 @@ helptrigger () {
       fi
 }
 
+#Check if there are command line arguments
 if [ $# -ne 0 ]
   then
     argarray=( "$@" )
+    #Check if help is invoked
     helptrigger
   else
+    #If there are no command line arguments
     printhelp
   fi
 
 echo ""
 
+#Output of the results
 for arg in "${argarray[@]}"; do
   echo -e "\033[34m$arg\033[37m"
   echo ""

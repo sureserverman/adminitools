@@ -2,7 +2,6 @@
 
 #Init list file name
 listfile="/etc/ssh-menu/server-list"
-newln=""
 
 sshcommand=""
 
@@ -64,26 +63,29 @@ helptrigger () {
 if [ $# -ne 0 ]
   then
     argarray=( "$@" )
+    #Help invocation
     helptrigger
+    #Remove mock data from server list file
     demock
     echo "Adding servers:"
     for arg in "${argarray[@]}"; do
+      #Check if argument is file
       if [ -f "$arg" ]
         then
+          #Parse it and get ssh commands out of it
           confparse $arg
         else
+          #If argument is not a file add it as is (later to add validation)
           sshcommand=$arg
           addsshstring
         fi
     done
-    sshcommand=$1
   else
     #Interactive server ssh command input mode
-    #Initiate command variable
+    #Initialize command variable
     sshcommand="ssh "
-
+    #Remove mock data from server list file
     demock
- 
     #Check if proxy is required
     echo "Is your ssh to be proxied?"
     while true; do

@@ -17,6 +17,8 @@ helptrigger () {
         printhelp
       fi
 }
+
+#Check for help arguments or no argument
 if [ $# -ne 0 ]
   then
     argarray=( "$@" )
@@ -27,14 +29,19 @@ if [ $# -ne 0 ]
 
 echo ""
 
+#Result output
 for conffile in "${argarray[@]}"; do
   echo -e "\033[34m$conffile\033[37m"
   echo ""
+  #Print out stripped current .conf file
   cat $conffile | awk '!/^#/  && NF'
   echo ""
   echo ""
+
+  #Check if it is not the last file (if it is the last one there is no need to wait for input)
   if [[ $conffile != ${argarray[-1]} ]]
     then
+      #Wait for any key to be pressed
       printf "\033[33mPress any key to continue\033[37m"
       read -n 1 -s -r
       printf "\33[2K\r"
