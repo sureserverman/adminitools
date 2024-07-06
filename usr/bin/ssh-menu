@@ -31,6 +31,7 @@ filelength=$(($(wc -l < $listfile)+1))
 #Check if there is command line argument
 if [ $# -ne 0 ]
   then
+    argarray=( "$@" )
     helptrigger
     servnum=$1
     #Check if argument is out of the range
