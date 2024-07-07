@@ -87,13 +87,13 @@ See the [open issues](https://github.com/sureserverman/adminitools/issues) for a
 
 ## Project assistance
 
-If you want to say **thank you** or/and support active development of Bootstrap scripts for easy server setup:
+If you want to say **thank you** or/and support active development of Admin mini tools:
 
 - Add a [GitHub Star](https://github.com/sureserverman/adminitools) to the project.
-- Tweet about the Bootstrap scripts for easy server setup.
+- Tweet about the Admin mini tools.
 - Write interesting articles about the project on [Dev.to](https://dev.to/), [Medium](https://medium.com/) or your personal blog.
 
-Together, we can make Bootstrap scripts for easy server setup **better**!
+Together, we can make Admin mini tools **better**!
 
 ## Authors & contributors
 
@@ -103,8 +103,8 @@ For a full list of all authors and contributors, see [the contributors page](htt
 
 ## Security
 
-Bootstrap scripts for easy server setup follows good practices of security, but 100% security cannot be assured.
-Bootstrap scripts for easy server setup is provided **"as is"** without any **warranty**. Use at your own risk.
+Admin mini tools follows good practices of security, but 100% security cannot be assured.
+Admin mini tools is provided **"as is"** without any **warranty**. Use at your own risk.
 
 _For more information and to report security issues, please refer to our [security documentation](docs/SECURITY.md)._
 
