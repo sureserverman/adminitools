@@ -69,16 +69,40 @@
 
 ## Usage
 
-> This script usage: init.sh -[hvdUKPBtSmcxRparbHuf]\
-> Flags determine everything\
-> Install: Matrix -m, Caddy -c, Xray -x <fake_domain>, SSH honeypot -H, TOR -t, socat -S\
-> Set up UFW -u, Fail2ban -f, New user -U, verbosity -v <0|1|2|3|4>, domain name -d <domain_name>, .onion service for ssh port -P\
-> SSH options: Custom port -p, Disable root login -r, Disable banners verbosity1 -b, Disable unsafe authentication methods -a\
-> -h or no flags Print this help\
-> -B to set as backend server\
-> -K to add client's public key for ssh
->
+> logtail -h or logtail --help - to print help\
+> logtail without arguments to print help again\
+> logtail <argument1> <argument2>... with as many arguments as you need\
+> where argument should be substring that you want to find from your log\
+> The output is last 50 lines from log, which contain <argument1> substring, then\
+> after key pressed by the user, last 50 lines from log, which contain <argument2> substring etc.\
 > 
+> stripconf -h or stripconf --help - to print help\
+> stripconf without arguments to print help again\
+> stripconf <argument1> <argument2>... with as many arguments as you need\
+> where argument should be name of the file, which contains configuration information\
+> 
+> hist-filter -h or hist-filter --help - to print help\
+> hist-filter without arguments to print help again\
+> hist-filter <substring1> <substring2>... with as many arguments as you need\
+> The output will be last 50 commands from bash history, that contain <substring1>\
+> Then it waits for any key to be pressed by you and prints out last 50 commands, that contain <substring2> etc\
+> 
+> ssh-menu -h or ssh-menu --help - to print help\
+> ssh-menu without arguments to choose server from the list interactively\
+> ssh-menu <servernumber> to connect to the server which has number <servernumber> in your list\
+> The list is stored in /etc/ssh-menu/server-list file\
+> 
+> menu-add -h or menu-add --help - to print help\
+> menu-add <argument1> <argument2>... with as many arguments as you need\
+> where argument could be either name of file, which contains ssh commands\
+> that looks like 'ssh -p port user@127.0.0.1 #Mockserver'\
+> or the command itself in single or double quotes (you can use both types of argument simultaneously)\
+> menu-add without arguments for interactively entering elements of ssh command\
+> 
+> menu-rm -h or menu-rm --help - to print help\
+> menu-rm without arguments for chosing which server to remove interactively\
+> menu-rm <servernumber1> <servernumber2>... with as many arguments as you need\
+> where argument should be number of existing command in the menu\
 
 ## Roadmap
 
