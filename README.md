@@ -62,7 +62,10 @@
 
 ### Installation
 
-> Just copy this set of scripts to the root directory of VPS 
+> `git clone https://github.com/sureserverman/adminitools.git`
+> `dpkg-deb --build adminitools`
+> `sudo dpkg -i adminitools`
+
 
 ## Usage
 
