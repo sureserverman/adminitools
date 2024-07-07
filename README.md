@@ -62,8 +62,8 @@
 
 ### Installation
 
-> `git clone https://github.com/sureserverman/adminitools.git`
-> `dpkg-deb --build adminitools`
+> `git clone https://github.com/sureserverman/adminitools.git`\
+> `dpkg-deb --build adminitools`\
 > `sudo dpkg -i adminitools`
 
 
