@@ -71,38 +71,38 @@
 
 > logtail -h or logtail --help - to print help\
 > logtail without arguments to print help again\
-> logtail <argument1> <argument2>... with as many arguments as you need\
+> logtail *argument1* *argument2*... with as many arguments as you need\
 > where argument should be substring that you want to find from your log\
-> The output is last 50 lines from log, which contain <argument1> substring, then\
-> after key pressed by the user, last 50 lines from log, which contain <argument2> substring etc.\
+> The output is last 50 lines from log, which contain *argument1* substring, then\
+> after key pressed by the user, last 50 lines from log, which contain *argument2* substring etc.
 > 
 > stripconf -h or stripconf --help - to print help\
 > stripconf without arguments to print help again\
-> stripconf <argument1> <argument2>... with as many arguments as you need\
-> where argument should be name of the file, which contains configuration information\
+> stripconf *argument1* *argument2*... with as many arguments as you need\
+> where argument should be name of the file, which contains configuration information
 > 
 > hist-filter -h or hist-filter --help - to print help\
 > hist-filter without arguments to print help again\
-> hist-filter <substring1> <substring2>... with as many arguments as you need\
-> The output will be last 50 commands from bash history, that contain <substring1>\
-> Then it waits for any key to be pressed by you and prints out last 50 commands, that contain <substring2> etc\
+> hist-filter *argument1* *argument2*... with as many arguments as you need\
+> The output will be last 50 commands from bash history, that contain *argument1*\
+> Then it waits for any key to be pressed by you and prints out last 50 commands, that contain *argument2* etc
 > 
 > ssh-menu -h or ssh-menu --help - to print help\
 > ssh-menu without arguments to choose server from the list interactively\
-> ssh-menu <servernumber> to connect to the server which has number <servernumber> in your list\
-> The list is stored in /etc/ssh-menu/server-list file\
+> ssh-menu *servernumber* to connect to the server which has number *servernumber* in your list\
+> The list is stored in /etc/ssh-menu/server-list file
 > 
 > menu-add -h or menu-add --help - to print help\
-> menu-add <argument1> <argument2>... with as many arguments as you need\
+> menu-add *argument1* *argument2*... with as many arguments as you need\
 > where argument could be either name of file, which contains ssh commands\
 > that looks like 'ssh -p port user@127.0.0.1 #Mockserver'\
 > or the command itself in single or double quotes (you can use both types of argument simultaneously)\
-> menu-add without arguments for interactively entering elements of ssh command\
+> menu-add without arguments for interactively entering elements of ssh command
 > 
 > menu-rm -h or menu-rm --help - to print help\
 > menu-rm without arguments for chosing which server to remove interactively\
-> menu-rm <servernumber1> <servernumber2>... with as many arguments as you need\
-> where argument should be number of existing command in the menu\
+> menu-rm *servernumber1* *servernumber2*... with as many arguments as you need\
+> where argument should be number of existing command in the menu
 
 ## Roadmap
 
