@@ -95,7 +95,7 @@
 > `menu-add -h` or `menu-add --help` - to print help\
 > `menu-add argument1 argument2...` with as many arguments as you need\
 > where argument could be either name of file, which contains ssh commands\
-> that looks like 'ssh -p port user@127.0.0.1 #Mockserver'\
+> that looks like 'ssh -p port user@127.0.0.1 #description'\
 > or the command itself in single or double quotes (you can use both types of argument simultaneously)\
 > `menu-add` without arguments for interactively entering elements of ssh command
 > 

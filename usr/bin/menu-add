@@ -45,7 +45,7 @@ printhelp () {
   echo -e "Usage: \033[33;1mmenu-add -h\033[0m or \033[33;1mmenu-add --help\033[0m - to print this help"
   echo -e "\033[33;1mmenu-add <argument1> <argument2>...\033[0m with as many arguments as you need"
   echo -e "where argument could be either name of file, which contains ssh commands"
-  echo -e "that looks like '\033[33;1mssh -p port user@127.0.0.1 #Mockserver\033[0m'"
+  echo -e "that looks like '\033[33;1mssh -p port user@127.0.0.1 #description\033[0m'"
   echo -e "or the command itself in single or double quotes"
   echo -e "\033[33;1mmenu-add\033[0m without arguments for interactively entering elements of ssh command"
   exit
