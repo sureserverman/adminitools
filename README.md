@@ -69,9 +69,9 @@
 
 ## Usage
 
-> logtail -h or logtail --help - to print help\
-> logtail without arguments to print help again\
-> logtail *argument1* *argument2*... with as many arguments as you need\
+> `**logtail -h**` or `**logtail --help**` - to print help\
+> `**logtail**` without arguments to print help again\
+> `**logtail *argument1* *argument2*...**` with as many arguments as you need\
 > where argument should be substring that you want to find from your log\
 > The output is last 50 lines from log, which contain *argument1* substring, then\
 > after key pressed by the user, last 50 lines from log, which contain *argument2* substring etc.
