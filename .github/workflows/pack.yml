@@ -6,8 +6,8 @@ on:
         main
 
 jobs:
-  deploy:
-    name: "Deploy to staging"
+  pack:
+    name: "Pack adminitools to deb"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
