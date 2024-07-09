@@ -32,6 +32,7 @@ jobs:
           name: "adminitools v${{ env.VERSION }}"
           tag_name: "v${{ env.VERSION }}"
           body_path: CHANGELOG.md
+          files: adminitools.deb
         env:
           GITHUB_TOKEN: ${{ github.token }}
       - uses: actions/upload-artifact@v4
