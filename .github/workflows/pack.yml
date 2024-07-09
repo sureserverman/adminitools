@@ -18,6 +18,8 @@ jobs:
           echo -n "$GPG_SIGNING_KEY" | base64 --decode | gpg --import
         env:
           GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
+      - name: install required program
+        run: sudo apt-get install dpkg-sig
       - name: sign the package
         run: dpkg-sig --sign builder adminitools
       - uses: actions/upload-artifact@v4
