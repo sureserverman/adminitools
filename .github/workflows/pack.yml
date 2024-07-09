@@ -21,7 +21,7 @@ jobs:
       - name: install required program
         run: sudo apt-get install dpkg-sig
       - name: sign the package
-        run: dpkg-sig --sign builder adminitools.deb
+        run: dpkg-sig --sign builder ./adminitools.deb
       - uses: actions/upload-artifact@v4
         with:
           name: adminitools.deb
