@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: package
-        run: dpkg-deb --build . adminitools
+        run: dpkg-deb --build . ~/adminitools
       - name: add signing key
         run: |
           echo -n "$GPG_SIGNING_KEY" | base64 --decode | gpg --import
@@ -21,8 +21,8 @@ jobs:
       - name: install required program
         run: sudo apt-get install dpkg-sig
       - name: sign the package
-        run: dpkg-sig --sign builder ./adminitools.deb
+        run: dpkg-sig --sign builder ~/adminitools.deb
       - uses: actions/upload-artifact@v4
         with:
           name: adminitools.deb
-          path: .
+          path: ~
