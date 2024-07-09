@@ -13,6 +13,13 @@ jobs:
       - uses: actions/checkout@v4
       - name: package
         run: dpkg-deb --build . adminitools
+      - name: add signing key
+        run: |
+          echo -n "$GPG_SIGNING_KEY" | base64 --decode | gpg --import
+        env:
+          GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
+      - name: sign the package
+        run: dpkg-sig --sign builder adminitools
       - uses: actions/upload-artifact@v4
         with:
           name: adminitools.deb
