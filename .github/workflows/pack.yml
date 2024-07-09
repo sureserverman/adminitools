@@ -24,12 +24,12 @@ jobs:
       - name: version
         run: echo "VERSION=$(cat DEBIAN/control | grep Version | cut -d ' ' -f 2)" >> $GITHUB_ENV
       - name: Publish release
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@v2
         id: create_release
         with:
           draft: false
           prerelease: false
-          release_name: "adminitools v${{ env.VERSION }}"
+          name: "adminitools v${{ env.VERSION }}"
           tag_name: "v${{ env.VERSION }}"
           body_path: CHANGELOG.md
       - uses: actions/upload-artifact@v4
