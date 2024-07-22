@@ -2,7 +2,7 @@
 
 #Help output function
 printhelp () {
-  echo -e "This tool was made for filternig  \033[33;1mbash command history\033[0m"
+  echo -e "This tool was made for filtering  \033[33;1mbash command history\033[0m"
   echo -e "Usage: \033[33;1mhist-filter -h\033[0m or \033[33;1mhist-filter --help\033[0m - to print this help"
   echo -e "\033[33;1mhist-filter\033[0m without arguments to print this help again"
   echo -e "\033[33;1mhist-filter <substring1> <substring2>...\033[0m with as many arguments as you need"

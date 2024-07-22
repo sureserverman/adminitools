@@ -33,11 +33,20 @@ if [ $# -ne 0 ]
 
 echo ""
 
+#Check if there is syslog file
+if [ -f "/var/log/syslog" ]
+  then
+    command="cat /var/log/syslog"
+  else
+    command="journalctl"
+  fi
+
 #Output of the results
 for arg in "${argarray[@]}"; do
   echo -e "\033[34m$arg\033[37m"
   echo ""
-  sudo cat /var/log/syslog | grep $arg | tail -50
+  # sudo cat /var/log/syslog | grep $arg | tail -50
+  sudo $command | grep $arg | tail -50
   echo ""
   echo ""
   if [[ $arg != ${argarray[-1]} ]]

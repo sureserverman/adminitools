@@ -1,0 +1,68 @@
+#!/bin/bash
+
+#Init variables
+settingsfile="/etc/hist/enable"
+
+#Help output function
+printhelp () {
+  echo -e "This tool was made for disabling/enabling \033[33;1mbash command history\033[0m"
+  echo -e "Usage: \033[33;1mhistswitch -h\033[0m or \033[33;1mhistswitch --help\033[0m - to print this help"
+  echo -e "\033[33;1mhistswitch\033[0m without arguments to enable history when disabled and disable when enabled"
+  echo -e "\033[33;1mhistswitch yes\033[0m to enable history"
+  echo -e "and \033[33;1mhistswitch no\033[0m to disable history"
+  echo -e "The settings are stored in \033[33;1m/etc/hist/enable\033[0m file"
+  exit
+}
+
+#Check args for help 
+helptrigger () {
+  if [[ ${argarray[*]} =~ '-h' ]] || [[ ${argarray[*]} =~ '--help' ]]
+      then
+        printhelp
+      fi
+}
+
+#Function for enabling history
+enablehist () {
+    unlink ~/.bash_history
+    echo "yes" | sudo tee $settingsfile
+}
+
+#Function for disabling history
+disablehist () {
+    ln -sf /dev/null ~/.bash_history
+    echo "no" | sudo tee $settingsfile
+}
+
+#Check current status
+status=$(cat $settingsfile | head -1)
+
+#Check if there are command line arguments
+if [ $# -ne 0 ]
+  then
+    argarray=( "$@" )
+    #Check if help is invoked
+    helptrigger
+    if [ "$status" = "yes" ]
+      then
+        if [ $argarray = "no" ]
+          then
+            disablehist
+          fi
+      else
+        if [ $argarray = "yes" ]
+          then
+            enablehist
+          fi
+      fi
+  else
+    #If there are no command line arguments
+    if [ "$status" = "yes" ]
+      then
+        disablehist
+      else
+        enablehist
+      fi
+  fi
+
+
