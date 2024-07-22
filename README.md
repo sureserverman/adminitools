@@ -50,8 +50,7 @@
 
 > This set of tools was made to simplify and automate some daily tasks of linux administrators. It includes **logtail** for extraction relevant information from ***/var/log/syslog***, 
 > **stripconf** to get info on only active settings from ***.conf*** files, **hist-filter** for those who hate pressing ***Ctrl-R*** multiple times while looking for particular command in ***history***,
-> **ssh-menu** for easy ssh access to your servers, **menu-add** for adding servers to your server list for ***ssh-menu*** and
-> **menu-rm** for servers removal from the abovementioned list
+> **hist-switch** to turn bash history ***on/off***
 > If you have any ideas about what to add to this set, feel free to create an issue or a pull request
 
 ### Built With
@@ -87,22 +86,11 @@
 > The output will be last 50 commands from bash history, that contain *argument1*\
 > Then it waits for any key to be pressed by you and prints out last 50 commands, that contain *argument2* etc
 > 
-> `ssh-menu -h` or `ssh-menu --help` - to print help\
-> `ssh-menu` without arguments to choose server from the list interactively\
-> `ssh-menu servernumber` to connect to the server which has number *servernumber* in your list\
-> The list is stored in /etc/ssh-menu/server-list file
-> 
-> `menu-add -h` or `menu-add --help` - to print help\
-> `menu-add argument1 argument2...` with as many arguments as you need\
-> where argument could be either name of file, which contains ssh commands\
-> that looks like 'ssh -p port user@127.0.0.1 #description'\
-> or the command itself in single or double quotes (you can use both types of argument simultaneously)\
-> `menu-add` without arguments for interactively entering elements of ssh command
-> 
-> `menu-rm -h` or `menu-rm --help` - to print help\
-> `menu-rm` without arguments for chosing which server to remove interactively\
-> `menu-rm servernumber1 servernumber2...` with as many arguments as you need\
-> where argument should be number of existing command in the menu
+> `histswitch -h` or `histswitch --help` - to print help
+> `histswitch` without arguments to enable history when disabled and disable when enabled
+> `histswitch yes` to enable history
+> and `histswitch no` to disable history
+> The settings are stored in /etc/hist/enable file
 
 ## Roadmap
 
