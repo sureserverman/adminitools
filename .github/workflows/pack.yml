@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: package
-        run: dpkg-deb --build . adminitools.deb
+        run: dpkg-deb --build package adminitools.deb
       - name: add signing key
         run: echo -n "$GPG_SIGNING_KEY" | base64 --decode | gpg --import
         env:
@@ -22,7 +22,7 @@ jobs:
       - name: sign the package
         run: dpkg-sig --sign builder adminitools.deb
       - name: version
-        run: echo "VERSION=$(cat DEBIAN/control | grep Version | cut -d ' ' -f 2)" >> $GITHUB_ENV
+        run: echo "VERSION=$(cat package/DEBIAN/control | grep Version | cut -d ' ' -f 2)" >> $GITHUB_ENV
       - name: Publish release
         uses: softprops/action-gh-release@v2
         id: create_release
