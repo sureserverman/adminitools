@@ -50,12 +50,12 @@
 
 > This set of tools was made to simplify and automate some daily tasks of linux administrators. It includes **logtail** for extraction relevant information from ***/var/log/syslog***, 
 > **stripconf** to get info on only active settings from ***.conf*** files, **hist-filter** for those who hate pressing ***Ctrl-R*** multiple times while looking for particular command in ***history***,
-> **hist-switch** to turn bash history ***on/off***
+> **histswitch** to turn bash history ***on/off***
 > If you have any ideas about what to add to this set, feel free to create an issue or a pull request
 
 ### Built With
 
-> Pure bash and bash only. No strings attached. Thus it can be installed to any debian-based liux distro and any architecture
+> Pure bash and bash only. No strings attached. Thus it can be installed to any debian-based linux distro and any architecture
 
 ## Getting Started
 
